@@ -1,0 +1,24 @@
+#include <iostream>
+#include <windows.h> // For Windows systems
+
+void printRainbow() 
+{
+    int colors[] = {12, 14, 10, 11, 13, 9}; // ANSI color codes: 12 = red, 14 = yellow, 10 = green, 11 = cyan, 13 = purple, 9 = blue
+
+    while (true) 
+	{
+        for (int i = 0; i < 6; i++) 
+		{
+            HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+            SetConsoleTextAttribute(hConsole, colors[i]);
+            std::cout << "#####\n";
+            Sleep(500); // Pause for 500 milliseconds (0.5 seconds)
+        }
+    }
+}
+
+int main() 
+{
+    printRainbow();
+    return 0;
+}
